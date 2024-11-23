@@ -1114,8 +1114,6 @@ class rnbo_external_wrapper :
 				c74::max::atom_setlong(&a, 1);
 				class_parameter_setinfo(c, c74::max::PARAM_DATA_TYPE::PARAM_DATA_TYPE_NOBLOBCACHE, 1, &a);
 
-				initNoEdit();
-
 				return {};
 			}
     };
@@ -1131,6 +1129,9 @@ class rnbo_external_wrapper :
 				//c74::max::object_attr_setlong(x, c74::max::gensym("parameter_enable"), 1);
 
 				mSetupClock.delay(0); //post init setup
+				
+				initNoEdit();
+
 				return {};
 			}
     };
