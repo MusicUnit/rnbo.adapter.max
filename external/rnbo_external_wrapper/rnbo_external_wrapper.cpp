@@ -1114,6 +1114,8 @@ class rnbo_external_wrapper :
 				c74::max::atom_setlong(&a, 1);
 				class_parameter_setinfo(c, c74::max::PARAM_DATA_TYPE::PARAM_DATA_TYPE_NOBLOBCACHE, 1, &a);
 
+				initNoEdit();
+
 				return {};
 			}
     };
@@ -1243,6 +1245,13 @@ class rnbo_external_wrapper :
 		}
 #endif
 	private:
+		void initNoEdit() {
+			// TODO, iterate over subpatchers?
+			auto p = patcher();
+			c74::max::jpatcher_set_locked(p, 1);
+			c74::max::object_attr_setchar(p, c74::max::gensym("noedit"), 1);
+		}
+
 		//sel is optional for messaging errors to user, it lets us use inport message selectors instead of just "message"
 		void handleInportMessage(const c74::min::atoms& args, std::string sel = std::string("message")) {
 				if (args.size() == 0)
