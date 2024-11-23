@@ -23,10 +23,10 @@ Here is an example of how I build for debugging with Xcode:
 cd external
 mkdir build
 cd build
-cmake .. -G Xcode -DEXTERN_OUTPUT_NAME="foo~" -DRNBO_WRAPPER_HAS_AUDIO=True -DRNBO_WRAPPER_HAS_MSG_OUT=True \
-    -DRNBO_CPP_DIR=/Users/xnor/dev/rnbo.core/src/cpp/ \
-    -DRNBO_CLASS_FILE=/Users/xnor/Documents/export/bufferplayer/rnbo_source.cpp \
-    -DRNBO_DESCRIPTION_FILE=/Users/xnor/Documents/export/bufferplayer/description.json
+cmake .. -G Xcode -DEXTERN_OUTPUT_NAME="mu.whatever~" -DRNBO_WRAPPER_HAS_AUDIO=True \
+    -DRNBO_CPP_DIR="$(pwd)/../../" \
+    -DRNBO_CLASS_FILE="$(pwd)/../../../../../rnbo_source.cpp" \
+    -DRNBO_DESCRIPTION_FILE="$(pwd)/../../../../description.json"
 cmake --build .
 ```
 
